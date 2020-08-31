@@ -43,6 +43,7 @@ export class AssetPagesComponent implements OnInit {
               }
 
   ngOnInit(): void {
+    
     this.get_Asset();
 
     this.editForm = this.formBuilder.group({
@@ -125,6 +126,7 @@ onSubmit(){
     return result;
   });
 }
+
 
 onClick(val:any){
   console.log(val)
