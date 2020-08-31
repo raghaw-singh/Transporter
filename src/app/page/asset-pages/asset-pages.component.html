@@ -1,0 +1,400 @@
+
+
+
+<div class="card card-right">
+<div  class="pd-8">
+    <span class="mr-12"><i class='fas fa-arrow-left'></i></span>
+    <span class="font-size-11">New Assets Transfer</span>
+
+    <span style="float: right;"><i class='far fa-star'></i></span>
+
+</div>
+    <form class="form-signin form-height" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                                
+        <div class="form-group">
+          <label class="form-label"><b>Source Instance</b></label>
+          <select class="form-control font-size-12">
+              <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label"><b>Target Instance</b></label>
+          <select class="form-control font-size-12">
+              <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+              <label  class="form-label"><b>Asset Type</b></label>
+              <select class="form-control" formControlName="assettype">
+                <!-- <option *ngFor="let data of data_asset" [value]="data.Asset_Type_Name">{{data.Asset_Type_Name}}</option> -->
+                  <option style="font-size: 11;" value="">{{this.asset_type}}</option>
+                  <!-- <option>All</option>
+                  <option>instance 2</option>
+                  <option>instance 3</option>
+                  <option>instance 4</option> -->
+              </select>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="email" class="form-label"><b>Asset Name/Id</b></label>
+         
+
+              <input type="text"  class="form-control font-size-10" style="height:39px" placeholder="Search Keywords" formControlName="search" [(ngModel)]="term">
+             
+              <!-- <i class='fas fa-search serach-icon'></i> -->
+              <button  class="btn button-search" type="submit"><i class="fas fa-search"></i></button>
+              <!-- <button class="btn"><i class="fa fa-home"></i></button> -->
+
+
+            </div>
+      </div>
+
+    
+
+      <!-- <div class="custom-control custom-checkbox mb-3">
+      </div> -->
+    </form>
+
+
+    <div *ngIf="showAsset?.length > 0">
+      <span class="result-number" >{{showAsset?.length}} results</span>
+    </div>
+    
+
+    <div style="display: inline;" *ngIf="!showTransferscreen">
+      <span class="left-text titile-left">Assets</span>
+      <span class="titile-right">02 Assets</span>
+    </div>
+    <div *ngIf="showAsset?.length > 0">
+<div class="font-size-10">
+   
+    <table class="table table-hover sortable" style="font-size: 11px;" *ngIf="showSelect">
+      <thead>
+        <tr>
+          <th>AboutName</th>
+          <th>AboutId</th> 
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="boder-bottom" *ngFor="let group of showAsset | paginate: { itemsPerPage: 3, currentPage: p } | filter:term">
+          <td (click) ="onClick(group)">{{group.assetName}}</td>
+          <!-- <td (click) ="onClick(group)">{{group.assetName}}</td> -->
+
+          <td>{{group.assetId}}</td>
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        </tr>
+        <!-- <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr> -->
+        
+      </tbody>
+    </table>
+
+    
+    <pagination-controls style="padding-left: 20px;" (pageChange)="p = $event"></pagination-controls>
+    
+  </div>
+  
+
+
+
+  <div class="font-size-10" *ngIf="!showSelect">
+   
+    <table class="table table-hover" >
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>AboutName</th>
+          <th>AboutId</th> 
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>Johnkkk</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" (click)="ItemNmumber()" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+        <tr class="boder-bottom">
+          <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+          <td>John</td>
+          <td>Doe</td>
+          
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+
+        
+        </tr>
+      </tbody>
+      <!-- <div class="footer">
+        <p *ngIf="showItem">Footer</p>
+        <div style="display: inline;" *ngIf="!showItem">
+          <span class="left-text"> 1 items selected</span>
+          <span style="float: right;">
+          <button type="button" class="btn btn-danger btn-transfer btn-sm font-size-10 list-button" (click)="teansferScreen()">Transfer</button>
+
+          </span>
+        </div>
+      </div> -->
+    </table>
+  
+  </div>
+</div>
+
+  <!-- Transfer assets screen -->
+    <div  *ngIf="!showTransferscreen" style="height: 133vh;">
+  <div class="font-size-10 mar--8">
+   
+    <table class="table table-hover table-border" >
+      <thead>
+        <tr>
+          <th>AboutName</th>
+          <th>AboutId</th> 
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button> -->
+          <button type="button" class="close mr-tp-11" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button> -->
+          <button type="button" class="close mr-tp-11" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button> -->
+          <button type="button" class="close mr-tp-11" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button> -->
+          <button type="button" class="close mr-tp-11" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button> -->
+          <button type="button" class="close mr-tp-11" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </tr>
+        <tr class="boder-bottom">
+          <td>John</td>
+          <td>Doe</td>
+          
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button> -->
+          <button type="button" class="close mr-tp-11" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </tr>
+      
+      
+        
+      </tbody>
+    
+    </table>
+    <form class="form-signin form-height1">
+                                
+      <div class="form-group">
+        <label class="form-label"><b>Destination Instance</b></label>
+        <select class="form-control font-size-10">
+            <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option>
+        </select>
+      </div>
+</form>
+
+
+
+
+
+  </div> 
+
+  <form action="/action_page.php" >
+    <p class="options">Duplicate Rule</p>
+    <div class="form-check-inline">
+      <label class="form-check-label font-size-10 mr--left--8" for="check1">
+        <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" checked>Option 1
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label font-size-10" for="check1">
+        <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" checked>Option 2
+      </label>
+    </div>
+      </form>
+
+  <div style="display: inline;" class="Padd-form mr--left--8">
+    <span class="bg-yellow font-size-10">
+      <i class='fas fa-exclamation-triangle'></i>
+    </span>
+
+    <span class="font-size-10">
+Assets alrady ready <a href="https://example.com">View Duplication</a>
+    </span>
+  </div>
+</div>
+<div class="footer" *ngIf="showItem">
+  <!-- <p *ngIf="showItem">Footer</p> -->
+  <div style="display: inline;" >
+    <span class="left-text font-size-10"> 1 items selected</span>
+    <span style="float: right;">
+    <button type="button" class="btn btn-danger btn-transfer btn-sm font-size-10 list-button" (click)="teansferScreen()">Transfer</button>
+
+    </span>
+  </div>
+</div> 
+<div class="footer"  *ngIf="!showTransferscreen">
+ 
+  <button type="button" class="btn btn-primary btn-block footer-button">Transfer Assets</button>
+
+
+</div>
+  </div>
+
+
+  
+
+

@@ -1,0 +1,275 @@
+// .card-right{
+//   // max-width: 270px;
+//   //   float: right;
+//   //   height: 100vh;
+//   //   margin: 4px;
+//   margin: 4px;
+//   height:751px;
+//   background-color: #FFFFFF;
+//   border-radius: 4px;
+//   box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.3);
+//   width: 480px;
+//   height: 751px;
+// }
+
+.wrapper {
+  width:100%;
+  margin : 0;
+  }
+  
+  .first-div {
+  width:14%;
+  margin : 0;
+  float : left ;
+  // background-color: red;
+  }
+  
+
+  .first1-div{
+    width: 28px;
+    margin: 0;
+    float: left;
+    background-color:#007bff52;
+    height: 28px;
+    border-radius: 26px;
+    /* margin-top: 4px; */
+    position: relative;
+    top: 10px;
+    left: 7px;
+    margin-right: 15px;
+}
+
+  
+  .second-div {
+  width:60%;
+  margin : 0;
+  float : left ;
+  // background-color:blue;
+  }
+  
+  .third-div {
+    width:23%;
+    margin : 0;
+    float : left ;
+    // background-color:green;
+  
+    }
+
+    .search-bar{
+      max-width: 92%;
+    
+    margin-left: 12px;
+    font-size: 11px;
+    margin-top: 4px;
+    
+    }
+
+    .msg-title{
+
+     
+      position: relative;
+      top: 5px;
+      font-size: 12px;
+      /* font-family: bold; */
+      font-weight: bold;
+    
+  }
+    .icon-back{
+      position: relative;
+      left: 5px;
+      top: 5px;
+      font-size: 18px;
+    }
+
+    .time-center{
+      margin-top: 10px;
+    margin-left: 7px;
+    }
+
+
+    .footer {
+      position: fixed;
+      bottom: 2px;
+      width: 261px;
+      /* height: 62px; */
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      background-color: #dee2e6;
+      color: #dc3545;
+      text-align: center;
+   }
+
+
+   .footer1 {
+    position: fixed;
+    bottom: 4px;
+    width: 256px;
+    /* height: 62px; */
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #dee2e6;
+    color: #dc3545;
+    text-align: center;
+ }
+
+   .text-center{
+    font-size: 13px;
+    font-weight: bold;
+   }
+
+   .icon-aligen{
+    margin-left: 14px;
+    margin-top: 4px;
+
+   }
+
+   .btn-right{
+    margin-bottom: 9px;
+    margin-right: 3px;
+    margin-top: -8px;
+    margin-left: 9px;
+    width: 55px;
+    
+    /* height: 25px; */
+    font-size: 12px;
+   }
+
+   .btn-right-select{
+    float: right;
+    font-size: 9px;
+    padding-right: -15px;
+    /* text-align: center; */
+    padding-left: 5px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid;
+   }
+
+   .table-title{
+    margin-bottom: 0px;
+    font-size: 9px;
+    margin-left: 8px;
+    margin-top: 7px;
+   }
+
+   .serach-btn{
+    background-color: white;
+    border: 1px solid #ced4da;
+    color: red;
+    font-size: 10px;
+   }
+
+   .btn-div{
+    margin-right: 4px;
+    margin-top: 4px;
+   }
+
+   .result-number{
+    font-size: 10px;
+    padding-left: 12px;
+   }
+
+
+   .pd-left{
+    padding-left: 12px;
+   }
+
+   .pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 1px 14px;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color:red;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+ 
+  .cross-icon{
+    position: relative;
+    right: 16px;
+    top: 6px;
+    color: black;
+}
+  
+
+.mr-left{
+  position: absolute;
+  /* left: 153px; */
+  right: 43px;
+  z-index: 24;
+}
+
+
+
+.list-highlight{
+  padding-left: 12px;
+}
+.topnav {
+	overflow: hidden;
+	// background-color: #f1f1f1;
+  }
+  
+  .topnav a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 12px 4px;
+	text-decoration: none;
+	font-size: 11px;
+	border-bottom: 1px solid transparent;
+  }
+  
+  .topnav a:hover {
+	border-bottom: 2px solid  #e53b42;
+	font-weight: 500;
+  }
+  
+  .topnav a.active {
+	border-bottom: 3px solid #6d8e5b;
+  }
+
+  .table-transpond{
+    padding-top: -1px;
+  }
+
+  .table-transpond table thead tr th{
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.table-transpond table tbody tr td{
+  // font-weight: 500;
+  font-size: 12px;
+}
+
+.select-assets{
+  float: left;
+  margin-left: 60px;;
+}
+
+
+.show-table-transpond{
+
+  padding-top: 10px;;
+}
+
+.show-table-transpond table thead tr th{
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.show-table-transpond  table tbody tr td{
+  font-size: 12px;
+
+}

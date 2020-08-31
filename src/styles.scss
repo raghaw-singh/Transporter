@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.search-border .mat-form-field-infix {
+    border: 1px solid black;
+} 
+
+.font-size-9{
+
+    font-size: 9px;
+}
+
+.font-size-15{
+    font-size: 15px;
+}
+
+.font-size-10{
+    font-size: 15px;
+}
+
+.font-size-10{
+    font-size: 10px;
+}
+
+.font-size--12{
+    font-size: 10px;
+}
+.font--size--12{
+    font-size: 12px;
+}
+
+.font-size-11{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.mar-bottom-0{
+margin-bottom: 0px !important;
+}
+
+.play--icon{
+    position: relative;
+    top: 5px;
+    /* right: 0px; */
+    margin-left: 7px;
+    margin-right: 5px;
+}
+
+.boder-bottom{
+    border-bottom: 1px solid #dee2e6;
+  }
+
+
+  app-root > div:nth-last-child(1){
+    // position: absolute;
+    // top: 60px;
+    // right: 13px;
+    // height: 95vh;
+
+    position: absolute;
+    top: 20px;
+    right: 13px;
+    /* height: 95vh; */
+    z-index: 9999;
+    /* padding: 20px; */
+    background: red;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.3);
+    width: 480px;
+    /* height: 95vh; */
+    padding: 10px;
+    bottom: 10px;
+  }
+  
+
+

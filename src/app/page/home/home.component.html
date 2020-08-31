@@ -1,0 +1,305 @@
+
+              
+<!-- 
+                <div>
+                    <div class="row bg-success">
+                      <div class="col-md-12"> -->
+                        <!-- <p>Lorem ipsum...</p> -->
+                      
+                        <div class="card card-right">
+                        
+                          <div class="wrapper" style="margin-top: 16px;padding-right: 6px;">
+                            <div class="first-div" >
+                             
+                             <i class="fa fa-amazon icon-aligen"></i>
+                            </div> 
+                            <div class="second-div" >
+                             <span class="text-center">Transponder Sync</span>
+                            </div>
+                            <div class="third-div" >
+                              <button type="button" class="btn btn-danger btn-sm btn-right" (click)="screen()">New</button>
+                            </div>
+                          </div>
+
+
+                          <!-- <input class="form-control search-bar" id="myInput" type="text" placeholder="Search.."> -->
+
+                          <div class="input-group ">
+                            <span *ngIf="!transpond1" class="close cross-icon mr-left">&times;</span>
+                          
+                            <input type="text" class="form-control search-bar" placeholder="Search this blog">
+                            <div class="input-group-append btn-div">
+                               
+                              <button class="btn btn-secondary serach-btn" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+
+
+              <!-- toggle -->
+                          <div class="wrapper" *ngIf="showData">
+                            <p class="table-title">Recent Transfer</p>
+                            <div class="first1-div" >
+                              <i class="material-icons icon-back">email</i>
+                            </div> 
+                            <div class="second-div" >
+                              <h4 class="mar-bottom-0 msg-title">Email Template Title</h4>
+                            <div style="display: inline;">
+                              <span class="font-size-9">Source instance </span>
+                              <i class="material-icons font-size-15 play--icon">play_arrow</i>
+                           <span class="font-size-9">Source instance</span>
+                            </div>
+                            </div>
+                            <div class="third-div" >
+                              <p class="font-size-9 time-center"><b>02 hours ago</b></p>
+                           
+                            </div>
+
+                          </div>
+                          <hr *ngIf="showData" style="margin-top: 5px;">
+
+                        
+          <!-- toggle -->
+          <!-- <div class="container">
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Email</th>
+                  <th>Lastname</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>john@example.com</td>
+                  <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+             
+              </tbody>
+            </table>
+          </div> -->
+
+
+
+
+
+                          <!-- <div class="wrapper">
+                            <div class="first1-div" >
+                              <i class="material-icons icon-back">email</i>
+                            </div> 
+                            <div class="second-div" >
+                              <h4 class="mar-bottom-0 msg-title">Email Template Title</h4>
+                            <div style="display: inline;">
+                              <span class="font-size-9">Source instance </span>
+                              <i class="material-icons font-size-15 play--icon">play_arrow</i>
+                           <span class="font-size-9">Source instance</span>
+                            </div>
+                            </div>
+                            <div class="third-div" >
+                              <p class="font-size-9 time-center"><b>02 hours ago</b></p>
+                           
+                            </div>
+
+                            
+                          </div>
+                          <hr style="margin-top: 5px;"> -->
+                          <div style="margin-top: 20px;" *ngIf="!transpond1">
+                            <span class="result-number" >235 result</span>
+                            <!-- <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2"></i> Paypal </a> </li> -->
+
+                            <button type="button" class="btn btn-danger btn-sm btn-right btn-right-select" (click)="show_Tranpond()">Show Filter</button>
+                           
+
+                          </div>
+<div class="">
+ 
+
+   <table class="table" *ngIf="!transpond1">
+                            <thead>
+                              <tr>
+                                <th class="font-size-10">Type</th>
+                                <th class="font-size-10" style="width: 61px;">Asset Id</th>
+                                <th class="font-size-10">Asset Name</th>
+                                <th></th>
+                                <th></th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="boder-bottom">
+                                <div class="first1-div" >
+                                  <i class="material-icons icon-back">email</i>
+                                </div> 
+                                <td class="font-size--12">1234</td>
+                                <td class="font-size--12">Avengers</td>
+                                <div>
+                                <i class="fa fa-eye"></i>
+                                <i class='fas fa-exchange-alt pd-left'></i>
+                              </div>
+
+                               
+                           
+                              </tr>
+                              <tr  class="boder-bottom">
+                               
+                                <div class="first1-div" >
+                                  <i class="material-icons icon-back">email</i>
+                                </div> 
+                                <td class="font-size--12">1234</td>
+                                <td class="font-size--12">Avengers</td>
+                                <!-- <div>
+                                <i class="fa fa-eye"></i>
+                                <i class='fas fa-exchange-alt pd-left'></i>
+                              </div> -->
+
+                               <td class="font-size--12">&nbsp;&nbsp;</td>
+                                <td class="font-size--12">&nbsp;&nbsp;</td>
+                              </tr>
+                             
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="footer1" *ngIf="!transpond1">
+                          <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a href="#">1</a>
+                            <a class="active" href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                           
+                            <a href="#">&raquo;</a>
+                          </div>
+                         
+                        </div>
+
+ <!-- third screen  -->
+ <div *ngIf="!transpond">
+                        <div  style="margin-top: 20px;" >
+                          <span class="result-number" >Favourites</span>
+                          <!-- <button type="button" class="btn btn-danger btn-sm btn-right btn-right-select" (click)="show_Tranpond()">Show Filter</button> -->
+                         
+
+                        </div>
+
+                        <div class="list-highlight">
+                          <!-- <div >
+                              <router-outlet></router-outlet>
+                          </div> -->
+                        
+                          <div class="topnav">
+                              <a class="" href="#home">All Assets</a>
+                              <a href="#news">Email Templates</a>
+                              <a href="#contact">Campaign</a>
+                              <a href="#contact">Fomr</a>
+
+                            </div>
+                            
+                        </div>
+                        <!-- <hr style="margin-top: -1px;"> -->
+
+                        <div class="table-transpond" (click)="showAssetTranspond()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Asset Id</th>
+                                <th scope="col">Asset Name</th>
+                                <!-- <th scope="col">Handle</th> -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <!-- <th scope="row">1</th> -->
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <!-- <th scope="row">2</th> -->
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <!-- <th scope="row">3</th> -->
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+ </div>                  
+
+ <div *ngIf="!showTranspondAsset">
+ 
+  <div class="row" style="margin-top: 20px; margin-left: 3px;" >
+    <div>
+      <span class="result-number" >Favourites</span>
+    </div>
+    <div class="select-assets">
+      <select>
+        <option>All Assets</option>
+      </select>
+    </div>
+   
+
+  </div>
+
+  
+
+  <div class="show-table-transpond">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Asset Id</th>
+          <th scope="col">Asset Name</th>
+          <!-- <th scope="col">Handle</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- <th scope="row">1</th> -->
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <!-- <th scope="row">2</th> -->
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <!-- <th scope="row">3</th> -->
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>                 
+<!-- 
+                          <div class="footer" *ngIf="showData">
+                            <p>Footer</p>
+                          </div>
+                           -->
+                        <!-- </div> -->
+                     <!-- </div> -->
+                    <!-- </div> -->
+                     
+                      
+          
+                  </div> 
