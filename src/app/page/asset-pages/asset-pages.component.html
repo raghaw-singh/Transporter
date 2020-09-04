@@ -6,7 +6,9 @@
     <span class="mr-12"><i class='fas fa-arrow-left'></i></span>
     <span class="font-size-11">New Assets Transfer</span>
 
-    <span style="float: right;"><i class='far fa-star'></i></span>
+    <!-- <span style="float: right;"><i class='far fa-star'></i></span> -->
+    <span style="float: right;" (click)="home()"><img class="image-home" src="./assets/noun_Home_677617.png" /></span>
+
 
 </div>
     <form class="form-signin form-height" [formGroup]="editForm" (ngSubmit)="onSubmit()">
@@ -14,21 +16,23 @@
         <div class="form-group">
           <label class="form-label"><b>Source Instance</b></label>
           <select class="form-control font-size-12">
-              <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option>
+              <!-- <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option> -->
+              <option [value]="">{{optionsitename}}</option>
+
           </select>
         </div>
         <div class="form-group">
           <label class="form-label"><b>Target Instance</b></label>
           <select class="form-control font-size-12">
-              <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option>
+              <option *ngFor="let data of getCommonClient" [value]="data">{{data.Site_Name}}</option>
           </select>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
               <label  class="form-label"><b>Asset Type</b></label>
               <select class="form-control" formControlName="assettype">
-                <!-- <option *ngFor="let data of data_asset" [value]="data.Asset_Type_Name">{{data.Asset_Type_Name}}</option> -->
-                  <option style="font-size: 11;" value="">{{this.asset_type}}</option>
+                <option *ngFor="let data of data_asset" [value]="data.Asset_Type_Name">{{data.Asset_Type_Name}}</option>
+                  <!-- <option style="font-size: 11;" value="">{{this.asset_type}}</option> -->
                   <!-- <option>All</option>
                   <option>instance 2</option>
                   <option>instance 3</option>

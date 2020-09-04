@@ -1,0 +1,747 @@
+<!-- <p>asset details</p> -->
+
+
+
+
+<!-- <div class="card card-right">
+    <div  class="pd-8">
+        <span class="mr-12" (click)="back()"><i class='fas fa-arrow-left'></i></span>
+        <span class="font-size-11">New Assets Transfer</span>
+    
+        <span style="float: right;" (click)="home()"><img class="image-home" src="./assets/noun_Home_677617.png" /></span>
+    
+    </div>
+        <form class="form-signin form-height" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                                    
+            <div class="form-group">
+              <label class="form-label"><b>Source Instance</b></label>
+              <select class="form-control font-size-12">
+                  <option [value]="">{{source_instance}}</option>
+    
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label"><b>Target Instance</b></label>
+              <select class="form-control font-size-12">
+                  <option>{{target_instance}}</option>
+                </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                  <label  class="form-label"><b>Asset Type</b></label>
+                  <select class="form-control" formControlName="assettype">
+                  
+                      <option>{{asset_Type}}</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-8">
+                <label for="email" class="form-label"><b>Asset Name/Id</b></label>
+             
+    
+                  <input type="text"  class="form-control font-size-10" style="height:39px" placeholder="Search Keywords" formControlName="search" [(ngModel)]="term">
+                 
+                  <button  class="btn button-search" type="submit"><i class="fas fa-search"></i></button>
+    
+    
+                </div>
+          </div>
+    
+        
+    
+        
+        </form>
+    
+    
+        <div *ngIf="showAsset?.length > 0">
+          <span class="result-number" >{{showAsset?.length}} results</span>
+        </div>
+        
+    
+        <div style="display: inline;" *ngIf="!showTransferscreen">
+          <span class="left-text titile-left">Assets</span>
+          <span class="titile-right">02 Assets</span>
+        </div>
+        <div *ngIf="showAsset?.length > 0">
+    <div class="font-size-10">
+       
+        <table class="table table-hover sortable" style="font-size: 11px;" *ngIf="showSelect">
+          <thead>
+            <tr>
+              <th>AboutName</th>
+              <th>AboutId</th> 
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="boder-bottom" *ngFor="let group of showAsset | paginate: { itemsPerPage: 3, currentPage: p } | filter:term">
+              <td (click) ="onClick(group)">{{group.assetName}}</td> -->
+<!--     
+              <td>{{group.assetId}}</td>
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            </tr>
+         
+            
+          </tbody>
+        </table>
+    
+        
+        <pagination-controls style="padding-left: 20px;" (pageChange)="p = $event"></pagination-controls>
+        
+      </div>
+      
+    
+    
+    
+      <div class="font-size-10" *ngIf="!showSelect">
+       
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>AboutName</th>
+              <th>AboutId</th> 
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>Johnkkk</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" (click)="ItemNmumber()" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+            <tr class="boder-bottom">
+              <label class="checkbox-inline check-box-center"><input type="checkbox" value=""></label>
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+    
+            
+            </tr>
+          </tbody>
+        
+        </table>
+      
+      </div>
+    </div>
+     -->
+      <!-- Transfer assets screen -->
+        <!-- <div  *ngIf="!showTransferscreen" style="height: 133vh;"> -->
+      <!-- <div class="font-size-10 mar--8">
+       
+        <table class="table table-hover table-border" >
+          <thead>
+            <tr>
+              <th>AboutName</th>
+              <th>AboutId</th> 
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="boder-bottom">
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="close mr-tp-11" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            
+            </tr>
+            <tr class="boder-bottom">
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="close mr-tp-11" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            
+            </tr>
+            <tr class="boder-bottom">
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="close mr-tp-11" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            
+            </tr>
+            <tr class="boder-bottom">
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="close mr-tp-11" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            
+            </tr>
+            <tr class="boder-bottom">
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="close mr-tp-11" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            
+            </tr>
+            <tr class="boder-bottom">
+              <td>John</td>
+              <td>Doe</td>
+              
+              <button type="button" class="close mr-tp-11" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            
+            </tr>
+          
+          
+            
+          </tbody>
+        
+        </table>
+        <form class="form-signin form-height1">
+                                    
+          <div class="form-group">
+            <label class="form-label"><b>Destination Instance</b></label>
+            <select class="form-control font-size-10">
+                <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option>
+            </select>
+          </div>
+    </form>
+    
+    
+    
+    
+    
+      </div> 
+    
+      <form action="/action_page.php" >
+        <p class="options">Duplicate Rule</p>
+        <div class="form-check-inline">
+          <label class="form-check-label font-size-10 mr--left--8" for="check1">
+            <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" checked>Option 1
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label font-size-10" for="check1">
+            <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" checked>Option 2
+          </label>
+        </div>
+          </form>
+    
+      <div style="display: inline;" class="Padd-form mr--left--8">
+        <span class="bg-yellow font-size-10">
+          <i class='fas fa-exclamation-triangle'></i>
+        </span>
+    
+        <span class="font-size-10">
+    Assets alrady ready <a href="https://example.com">View Duplication</a>
+        </span>
+      </div>
+    </div>
+    <div class="footer" *ngIf="showItem"> -->
+      <!-- <p *ngIf="showItem">Footer</p> -->
+      <!-- <div style="display: inline;" >
+        <span class="left-text font-size-10"> 1 items selected</span>
+        <span style="float: right;">
+        <button type="button" class="btn btn-danger btn-transfer btn-sm font-size-10 list-button" (click)="teansferScreen()">Transfer</button>
+    
+        </span>
+      </div>
+    </div> 
+    <div class="footer"  *ngIf="!showTransferscreen">
+     
+      <button type="button" class="btn btn-primary btn-block footer-button">Transfer Assets</button>
+    
+    
+    </div>
+      </div> -->
+    
+    
+      
+    
+    
+      <div class="card card-right">
+        <div  class="pd-8 pd--8">
+          <div class="row">
+            <div class="col-md-1">
+              <span class="mr-12" (click)="back()"><i class='fas fa-arrow-left'></i></span>
+    
+            </div>
+            <div class="col-md-6" style="margin-right: -20px;"> 
+              <span class="font-size-16 pd--left--8" style="font-weight: bold;"> Asset Details</span>
+    
+            </div>
+            <div class="col-md-2 star">
+              <!-- <span><i class='far fa-star'></i></span> -->
+              <span style="float: right;" (click)="home()"><img class="image-home" src="./assets/noun_Home_677617.png" /></span>
+    
+    
+            </div>
+        
+        
+          </div>
+            <!-- <span class="mr-12"><i class='fas fa-arrow-left'></i></span>
+            <span class="font-size-11 pd--left--8"> Asset Details</span>
+        
+            <span style="float: right;"><i class='far fa-star'></i></span> -->
+        
+        </div>
+    
+       
+    
+        <div class="wrapper pd--8 card-2top-detail">
+           <div class="row">
+            <div class="col-md-2 first-div">
+              <i class="material-icons" style="margin-top: 2px; padding-left: 20px;">email</i>
+          </div>
+          <div class="col-md-6 second-div">
+              <p class="text-title"><b>Avengers Endgame</b></p>
+              <p class="font--size--11">1234</p>
+    
+          </div>
+          <div class="col-md-2 third-div">
+              <button type="button" class="btn btn-danger btn-right">Transfer</button>
+          </div>
+           </div>
+           
+        </div>
+    
+        
+        <div class="wrapper pd--8 instance-text-med">
+          <div class="row">
+            <div class="col-md-4 first2-div">
+              <p class="text-title">Instance</p>
+              <p class="font-size-11">{{asset_name}}</p>
+          </div>
+          <div class="col-md-4 second2-div">
+              <p class="text-title">Created On</p>
+              <!-- <p class="font-size-11">{{created.split(' ')[0]}}</p> -->
+              <p class="font-size-11">{{created | date: 'dd/MM/yyyy'}}</p>
+
+    
+          </div>
+          <div class="col-md-4 third2-div">
+              <p class="text-title">Created By</p>
+              <p class="font-size-11">Logan Paul</p>
+          </div>
+          </div>
+            <!-- <div class="first2-div">
+                <p class="text-title">Instance</p>
+                <p class="font-size-11">{{asset_name}}</p>
+            </div>
+            <div class="second2-div">
+                <p class="text-title">Created On</p>
+                <p class="font-size-11">12 July</p>
+    
+            </div>
+            <div class="third2-div">
+                <p class="text-title">Created By</p>
+                <p class="font-size-11">Logan Paul</p>
+            </div> -->
+        </div>
+    
+    <!-- <div class="pd--8 font-size-10">
+        <p class="text-inner">
+            <span class="note-grey">Note:</span><br>
+            Since we do not have any page to link it to, and we do not want to get a "404" message, we put # as the link.
+        </p>
+    </div> -->
+    <div class="container pd--left--0 pd--right--0">
+        
+        <br>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs border-none" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active border-none-1 font-size-11" data-toggle="tab" href="#home">Transfer</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link border-none-1 font-size-11" data-toggle="tab" href="#menu1">Transfer</a>
+          </li>  -->
+       
+        </ul>
+       
+      
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="home" class="container tab-pane active pd--left--0 pd--right--0 mr-top-12"><br>
+            <div class="table-responsive">
+              <table class="table" style="font-size: 12px;" >
+                  <thead class="thead">
+                    <tr style="height: 35px;">
+                      <th class="pd--left--8">Destination Instance</th>
+                      <th>Status</th>
+                      <th class="text-center">Date</th>
+                      <th>transferred by</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr  *ngFor="let group of data_history" style="height: 32px;">
+                      <td class="pd--left--16">{{group.Asset_Type}}</td>
+                      <td class="pd-left-6 text-center" [ngClass]="{
+                        'orange' : group.Status === 'In Progress',
+                        'positive': group.Status === 'Compeleted',
+                        'negative': group.Status === 'Errored'
+                     }"></td> 
+                     <!-- <td>{{group.Start_Time.split(' ')[0]}}</td> -->
+                     <td>{{group.Start_Time | date: 'dd/MM/yyyy'}}</td>
+
+                     <td class="text-center">{{group.Asset_Name}}</td>
+                     <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td>
+    
+                     <!-- <td class="pd-left-6 text-center"> d
+                      <span class ="dot" [ngClass]="{
+                        'dot-red' : group.Status === 'In Progress',
+                        'dot-green' : group.Status === 'Compeleted',
+                        'dot-yellow' : group.Status == 'Errored'}"></span></td> -->
+                      <!-- <td>{{group.Start_Time.split(' ')[0]}}</td>
+                      <td class="text-center">{{group.Asset_Name}}</td>
+                      <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td> -->
+    
+    
+                    </tr>
+                    <!-- <tr>
+                      <td>computer virtual machine standard -x7</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                      <td>sdgf</td>
+                      <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td>
+    
+                    </tr>
+                    <tr>
+                      <td>Mary</td>
+                      <td>Moe</td>
+                      <td>mary@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>July</td>
+                      <td>Dooley</td>
+                      <td>july@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>computer virtual machine standard -x7</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>computer virtual machine standard -x7</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>computer virtual machine standard -x7</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>computer virtual machine standard -x7</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+            </div> 
+            <!-- <div class="container pd--left--0 pd--right--0">
+              
+                <table class="table" style="font-size: 12px;">
+                  <thead>
+                    <tr class="font-size-9">
+                      <th class="pd--left--8">Version</th>
+                      <th>Modified at</th>
+                      <th>Modified by</th>
+                      <th>Flag</th>
+                       <th></th>
+                    </tr>
+                  </thead>
+                  <tbody class="font-size-10">
+                    <tr>
+                      <td class="pd--left--16">1.2</td>
+                      <td>4 Aug 2019</td>
+                      <td>Jannet Cruz</td>
+                      <td><i class='far fa-flag'></i></td>
+                      <td><i class="fa fa-ellipsis-h"></i></td>
+    
+    
+                    </tr>
+                    <tr>
+                      <td class="pd--left--16">1.2</td>
+                      <td>4 Aug 2019</td>
+                      <td>Jannet Cruz</td>
+                      <td><i class='far fa-flag'></i></td>
+                      <td><i class="fa fa-ellipsis-h"></i></td>
+    
+    
+                    </tr>
+                    <tr>
+                      <td class="pd--left--16">1.2</td>
+                      <td>4 Aug 2019</td>
+                      <td>Jannet Cruz</td>
+                      <td><i class='far fa-flag'></i></td>
+                      <td><i class="fa fa-ellipsis-h"></i></td>
+    
+    
+                    </tr>
+                  </tbody>
+                </table>
+              </div> -->
+    
+              <!-- <div class="table-responsive">
+                <table class="table" style="font-size: 12px;">
+                    <thead class="thead">
+                      <tr>
+                        <th class="pd--left--8">Version</th>
+                        <th>Modified at</th>
+                        <th>Modified by</th>
+                        <th>Flag</th>
+                         <th></th>
+                      </tr>
+                    </thead>
+                    <tbody class="font-size-10">
+                      <tr>
+                        <td class="pd--left--16">1.2</td>
+                        <td>4 Aug 2019</td>
+                        <td>Jannet Cruz</td>
+                        <td><i class='far fa-flag'></i></td>
+                        <td><i class="fa fa-ellipsis-h"></i></td>
+      
+      
+                      </tr>
+                      <tr>
+                        <td class="pd--left--16">1.2</td>
+                        <td>4 Aug 2019</td>
+                        <td>Jannet Cruz</td>
+                        <td><i class='far fa-flag'></i></td>
+                        <td><i class="fa fa-ellipsis-h"></i></td>
+      
+      
+                      </tr>
+                      <tr>
+                        <td class="pd--left--16">1.2</td>
+                        <td>4 Aug 2019</td>
+                        <td>Jannet Cruz</td>
+                        <td><i class='far fa-flag'></i></td>
+                        <td><i class="fa fa-ellipsis-h"></i></td>
+      
+      
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>  -->
+              
+          </div>
+          <div id="menu1" class="container tab-pane pd--left--0 pd--right--0 mr-top-12"><br>
+            <!-- <div class="container pd--left--0 pd--right--0">
+              
+                <table class="table font--size--11">
+                  <thead>
+                    <tr class="font-size-9">
+                      <th class="pd--left--8">Destination Instance</th>
+                      <th>Status</th>
+                      <th class="text-center" >Date</th>
+                      <th>Transfered by</th>
+                       <th></th>
+                    </tr>
+                  </thead>
+                  <tbody class="font-size-10">
+                    <tr  *ngFor="let group of data_history">
+                      <td class="pd--left--16">{{group.Asset_Type}}</td>
+                      <td class="pd-left-6 text-center" [ngClass]="{
+                        'orange' : group.Status === 'In Progress',
+                        'positive': group.Status === 'Compeleted',
+                        'negative': group.Status === 'Errored'
+                     }"></td> -->
+    
+                     <!-- <td class="pd-left-6 text-center"> d
+                      <span class ="dot" [ngClass]="{
+                        'dot-red' : group.Status === 'In Progress',
+                        'dot-green' : group.Status === 'Compeleted',
+                        'dot-yellow' : group.Status == 'Errored'}"></span></td> -->
+                      <!-- <td>{{group.Start_Time.split(' ')[0]}}</td>
+                      <td class="text-center">{{group.Asset_Name}}</td>
+                      <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td>
+    
+    
+                    </tr>
+                 
+                  </tbody>
+                </table>
+              </div> -->
+              <div class="table-responsive">
+                <table class="table" style="font-size: 12px;">
+                    <thead class="thead">
+                      <tr>
+                        <th class="pd--left--8">Destination Instance</th>
+                        <th>Status</th>
+                        <th class="text-center">Date</th>
+                        <th>transferred by</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr  *ngFor="let group of data_history">
+                        <td class="pd--left--16">{{group.Asset_Type}}</td>
+                        <td class="pd-left-6 text-center" [ngClass]="{
+                          'orange' : group.Status === 'In Progress',
+                          'positive': group.Status === 'Compeleted',
+                          'negative': group.Status === 'Errored'
+                       }"></td> 
+                       <!-- <td>{{group.Start_Time.split(' ')[0]}}</td> -->
+                       <td>{{group.Start_Time.split(' ')[0]}}</td>
+
+                       <td class="text-center">{{group.Asset_Name}}</td>
+                       <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td>
+      
+                       <!-- <td class="pd-left-6 text-center"> d
+                        <span class ="dot" [ngClass]="{
+                          'dot-red' : group.Status === 'In Progress',
+                          'dot-green' : group.Status === 'Compeleted',
+                          'dot-yellow' : group.Status == 'Errored'}"></span></td> -->
+                        <!-- <td>{{group.Start_Time.split(' ')[0]}}</td>
+                        <td class="text-center">{{group.Asset_Name}}</td>
+                        <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td> -->
+      
+      
+                      </tr>
+                      <!-- <tr>
+                        <td>computer virtual machine standard -x7</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                        <td>sdgf</td>
+                        <td class="pd-right-8"><i class="fa fa-ellipsis-h"></i></td>
+    
+                      </tr>
+                      <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>computer virtual machine standard -x7</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>computer virtual machine standard -x7</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>computer virtual machine standard -x7</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>computer virtual machine standard -x7</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+              </div> 
+          </div>
+       
+        </div>
+      </div>
+    
+    </div>
+    

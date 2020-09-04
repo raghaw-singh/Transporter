@@ -9,9 +9,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { AssetPagesComponent } from './asset-pages/asset-pages.component';
 import { AssetDetailsComponent } from './asset-details/asset-details.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AssetPageTargetComponent } from './asset-page-target/asset-page-target.component';
+import { AssetTypeComponent } from './asset-type/asset-type.component';
 
 
 const routes: Routes = [
@@ -23,12 +25,21 @@ const routes: Routes = [
     // path: 'myeloqua' , 
     // component:AssetPagesComponent
 
-    path: 'first/892925384/2/:id' , 
+    // path: 'first/892925384/2/:id' , 
+    path:'first',
     component:AssetPagesComponent
   },
   {
     path: 'd/:id', 
     component:AssetDetailsComponent
+  },
+  {
+    path: 'assettarget',
+    component: AssetPageTargetComponent
+  },
+  {
+    path:'assettype',
+    component: AssetTypeComponent
   }
 ];
 
@@ -43,6 +54,7 @@ const routes: Routes = [
     MatListModule,
     MatIconModule,
     RouterModule.forChild(routes),
+    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule
@@ -51,6 +63,6 @@ const routes: Routes = [
 
   
 
-  declarations: [HomeComponent, AssetPagesComponent, AssetDetailsComponent]
+  declarations: [HomeComponent, AssetPagesComponent, AssetDetailsComponent, AssetPageTargetComponent, AssetTypeComponent]
 })
 export class HomeModule { }

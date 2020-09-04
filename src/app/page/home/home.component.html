@@ -17,9 +17,14 @@
                              <span class="text-center">Transponder Sync</span>
                             </div>
                             <div class="third-div" >
-                              <button type="button" class="btn btn-danger btn-sm btn-right" (click)="screen()">New</button>
+                              <!-- <button type="button" class="btn btn-danger btn-sm btn-right" (click)="screen()">New</button> -->
+                              <button type="button" class="btn btn-danger btn-sm btn-right" (click)="route()">New</button>
+
                             </div>
                           </div>
+                          <!-- <div class="footer" *ngIf="showData">
+                            <p>Footer</p>
+                          </div> -->
 
 
                           <!-- <input class="form-control search-bar" id="myInput" type="text" placeholder="Search.."> -->
@@ -27,7 +32,7 @@
                           <div class="input-group ">
                             <span *ngIf="!transpond1" class="close cross-icon mr-left">&times;</span>
                           
-                            <input type="text" class="form-control search-bar" placeholder="Search this blog">
+                            <input type="text" class="form-control search-bar" placeholder="Search this blog"  [(ngModel)]="term">
                             <div class="input-group-append btn-div">
                                
                               <button class="btn btn-secondary serach-btn" type="button">
@@ -40,25 +45,68 @@
 
               <!-- toggle -->
                           <div class="wrapper" *ngIf="showData">
-                            <p class="table-title">Recent Transfer</p>
-                            <div class="first1-div" >
-                              <i class="material-icons icon-back">email</i>
-                            </div> 
-                            <div class="second-div" >
-                              <h4 class="mar-bottom-0 msg-title">Email Template Title</h4>
-                            <div style="display: inline;">
-                              <span class="font-size-9">Source instance </span>
-                              <i class="material-icons font-size-15 play--icon">play_arrow</i>
-                           <span class="font-size-9">Source instance</span>
-                            </div>
-                            </div>
-                            <div class="third-div" >
-                              <p class="font-size-9 time-center"><b>02 hours ago</b></p>
-                           
-                            </div>
+                            <p class="table-title">Recent Transfers</p>
 
+                            <div *ngFor="let data of showsync  | filter:term" style="clear: both;">
+                            <div class="first1-div" [ngClass]="{
+                              'rectangle-copy-9' : data.Asset_Type ==='Email',
+                              'rectangle-copy-10 ' : data.Asset_Type ==='Campaign',
+                              'rectangle-form' : data.Asset_Type ==='Form'
+                             
+                           }">
+                              <!-- <i *ngIf="(data.Asset_Name === Email1)" class="material-icons icon-back">email</i> -->
+                              <!-- <i  
+                              
+                              [title]="data.Asset_Name" 
+                              [ngClass]="{
+                                  'fa fa-envelope':data.Asset_Name === 'Email1',
+                                  'fa fa-facebook-official':data.Asset_Name === 'Campaign1',
+                                  'fa-instagram': data.Asset_Name === 'Form1'
+
+                                  
+                                }"></i> -->
+                                <!-- <span><img class="image-home" src="./assets/email_icon.png" /></span> -->
+                                <span><img    [ngClass]="{
+                                  'bitmap-copy-3' : data.Asset_Type ==='Email',
+                                  'noun-announcement' : data.Asset_Type ==='Campaign',
+                                  'rectangle-form' : data.Asset_Type ==='Form'
+                                 
+                               }" [src]="getImage(data)"/></span>                           
+
+                                <!-- <div class="image">
+
+                                </div> -->
+                                <!-- <a href="#" class="image"></a> -->
+
+                                <!-- <a href="#" class="icon" title="shareStatus"></a> -->
+
+
+
+                              
+                            </div>
+                            <div class="second-div" (click)="target(data)">
+                              <!-- <h4 class="mar-bottom-0 msg-title">Email Template Title</h4> -->
+                              <h4 class="mar-bottom-0 msg-title">{{data.Asset_Name}}</h4>
+                          
+                              <div style="display: inline;">
+                                <span class="font-size-9">{{data.Source_Site_Id}}</span>
+                                <i class="material-icons font-size-15 play--icon"  [ngClass]="{
+                                  'orange' : data.Status === 'In Progress'
+                                 
+                               }">play_arrow</i>
+                               <!-- <i class="material-icons font-size-15 play--icon" *ngIf="(data.Status == In Progress)">play_arrow</i> -->
+                                <span class="font-size-9">{{data.Target_Site_Id}}</span>
+                              </div>
+                            </div>
+                            <div class="third-div">
+                              <p class="font-size-9 time-center"><b>{{calculateDiff(data)}} {{hoursTime(data)}} </b></p>
+                              <!-- <p class="font-size-9 time-center"><b>{{elem.timestamp | date: 'yyyy-MM-dd'}}</b></p> -->
+
+                          
+                            </div>
+                           </div>
                           </div>
-                          <hr *ngIf="showData" style="margin-top: 5px;">
+                          <!-- <hr *ngIf="showData" style="margin-top: 5px;"> -->
 
                         
           <!-- toggle -->
@@ -291,14 +339,55 @@
     </table>
   </div>
 </div>                 
-<!-- 
-                          <div class="footer" *ngIf="showData">
-                            <p>Footer</p>
-                          </div>
-                           -->
-                        <!-- </div> -->
-                     <!-- </div> -->
-                    <!-- </div> -->
+
+                          <!-- <div class="footer" *ngIf="showData">
+                           
+                            <div class="row foot-bar">
+                              <div class="col-md-4">
+                                
+                                <img class="image-home" src="./assets/noun_Home_677617.png" />
+
+
+                              </div>
+                              <div class="col-md-4">
+                                
+                                <img class="image-home" src="./assets/noun_favourite_1354856.png" (click)="show_Trans1()"/>
+
+                              </div>
+                              <div class="col-md-4">
+                             
+                                <img class="image-home" src="./assets/noun_setting_2434723.png"/>
+
+                              </div>
+                              
+                            </div>
+                            
+                          </div> -->
+
+                          <!-- <div class="footer">
+                           
+                            <div class="row foot-bar">
+                              <div class="col-md-4">
+                                
+                                <img class="image-home" src="./assets/noun_Home_677617.png" (click)="show_home()"/>
+
+
+                              </div>
+                              <div class="col-md-4">
+                                
+                                <img class="image-home" src="./assets/noun_favourite_1354856.png" (click)="show_Trans1()"/>
+
+                              </div>
+                              <div class="col-md-4">
+                             
+                                <img class="image-home" src="./assets/noun_setting_2434723.png"/>
+
+                              </div>
+                              
+                            </div>
+                            
+                          </div> -->
+                           
                      
                       
           

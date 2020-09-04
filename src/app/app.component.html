@@ -33,9 +33,30 @@
             Dropdown
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="first/892925384/2/myeloqua">Myeloqua</a>
-            <a class="dropdown-item" href="first/892925384/2/email">Email</a>
-            <a class="dropdown-item" href="first/892925384/2/campaign">Campaign</a>
+            <a class="dropdown-item" href="">Myeloqua</a>
+            <!-- <a class="dropdown-item" [routerLink]="['/first']"
+            [queryParams]="{ appId: '1' , InstallId: '2' , assetType:'myeloqua', assetId: '', siteId:'892925384', siteName:'TechnologyPartnerportQii', assetName:'email', userId:'18', userName: 'Aditi.Sinha'}">Myeloqua</a> -->
+
+            <!-- <a class="dropdown-item" href="first/892925384/2/email">Email</a> -->
+
+            <!-- <a class="dropdown-item" [routerLink]="['/first']"
+            [queryParams]="{ appId: '1' , InstallId: '2' , assetType:'Email', assetId: '4', siteId:'892925384', siteName:'TechnologyPartnerPORTQIIPTELTD', assetName:'myeloqua', userId:'18', userName: 'Aditi.Sinha'}">Email</a> -->
+
+            <a class="dropdown-item" [routerLink]="['/assettype']"
+            [queryParams]="{ appId: '1' , InstallId: '2' , assetType:'Email', assetId: '', siteId:'892925384', siteName:'TechnologyPartnerPORTQIIPTELTD', assetName:'myeloqua', userId:'18', userName: 'Aditi.Sinha'}">Asset Type</a>
+
+            <!-- <a class="dropdown-item" [routerLink]="['/first']"
+            [queryParams]="{ appId: '1' , InstallId: '2' , assetType:'Campaign', assetId: '4', siteId:'892925384', siteName:'TechnologyPartnerportQii', assetName:'eloqua', userId:'18', userName: 'Aditi.Sinha'}">Campaign</a>
+           -->
+        
+           <a class="dropdown-item"  (click)="third_Screen()">Asset</a>
+
+
+            <!-- <a [routerLink]="['/home']"
+              [queryParams]="{ url: 'http://geojson.io/#map=13/40.7159/-74.0084' }"> -->
+              <!-- <a [routerLink]="['/Search']" [queryParams]="{q:'asdf'}"></a> -->
+
+
             <!-- <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div> 

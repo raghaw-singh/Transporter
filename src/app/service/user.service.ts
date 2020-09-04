@@ -9,7 +9,10 @@ export class UserService {
 
  
   // baseurl = 'https://cc874c49-efac-47ba-98b2-c738747d8b95.mock.pstmn.io'
-  baseurl = 'https://bbbb9862-2f32-442b-aab1-ed483814867b.mock.pstmn.io'
+  // baseurl = 'https://bbbb9862-2f32-442b-aab1-ed483814867b.mock.pstmn.io'
+             
+  baseurl = 'https://32d171a9-975d-43c1-9a9d-6ea5d9255a4d.mock.pstmn.io/'
+  
 
 
   constructor(private http: HttpClient) { }
@@ -47,6 +50,16 @@ export class UserService {
     //  console.log(res)
      
     // )}
+  }
+
+  getCommonClient(user){
+    return this.http.post<any>(this.baseurl+'/getCommonClient',user)
+
+  }
+
+  getShowRecentSync(){
+    return this.http.get('https://0f6e9720-4a39-4185-9748-cca48d55fd21.mock.pstmn.io/showRecentSync')
+
   }
 
 

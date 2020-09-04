@@ -60,4 +60,32 @@ export class AppComponent {
     event.preventDefault();
     console.log(pageIndex);
   }
+
+  third_Screen(){
+
+    const p = {}
+
+    this.user.getSyncRecordByAssetTypeAndAssetId(p).subscribe(data => {
+      console.log(data)
+
+      this.router.navigate(['d' + '/'+ 2], { queryParams: { 
+     
+        appId: '1' , InstallId: '2' , assetType:'Campaign', assetId: '4', siteId:'892925384', siteName:'TechnologyPartnerportQii', assetName:'eloqua', userId:'18', userName: 'Aditi.Sinha'
+  
+       } });
+  
+     
+      return ;
+    });
+  
+
+
+   
+
+  }
+
+ 
+  
 }
+
+

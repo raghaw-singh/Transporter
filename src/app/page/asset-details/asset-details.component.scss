@@ -1,19 +1,19 @@
-.card-right{
-    // width: 390px;
-      // float: right;
-      // height: 144vh;
+// .card-right{
+//     // width: 390px;
+//       // float: right;
+//       // height: 144vh;
 
 
-      // margin: 4px;
-      // height:751px;
-      // background-color: #FFFFFF;
-      // border-radius: 4px;
-      // box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.3);
-      // width: 480px;
-      // height: 751px;
-      padding: 10px 15px;
+//       // margin: 4px;
+//       // height:751px;
+//       // background-color: #FFFFFF;
+//       // border-radius: 4px;
+//       // box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.3);
+//       // width: 480px;
+//       // height: 751px;
+//       padding: 10px 15px;
       
-  }
+//   }
 
   .card-2top-detail{
     padding-top:10px;
@@ -317,4 +317,44 @@ div#menu1.container.tab-pane.active {
 
 // .topnav a.active {
 //   border-bottom: 3px solid red;
+// }
+
+
+.image-home{
+  cursor: pointer;
+
+  color: #E21E26;
+  width: 24px;
+  height: 25px;
+}
+
+
+
+// .table {
+//   border: 1px solid #dddddd;
+//   border-bottom: 1px solid #dddddd; 
+  
+// }
+
+td {
+// padding-top: -12px;
+margin-top: 6px;
+}
+
+
+table {
+  // background-color: #EEEEEE;
+  // margin-top: 40px;
+}
+tr{
+  /*display: block;*/
+  border-top: 1px solid #dddddd;
+  
+  /*background-color: #CC9999;*/
+  
+}
+// tr:nth-child(odd){
+//   /*display: block;*/
+//   border-top: 1px solid #dddddd;
+  
 // }

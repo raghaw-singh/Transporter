@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-asset-details',
@@ -14,7 +14,8 @@ export class AssetDetailsComponent implements OnInit {
   asset_name: any;
 
   constructor(private user: UserService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -53,5 +54,9 @@ export class AssetDetailsComponent implements OnInit {
     });
   }
 
+  home(){
+    this.router.navigate([''])
+  
+  }
  
 }

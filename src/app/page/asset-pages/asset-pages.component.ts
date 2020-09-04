@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { map } from "rxjs/operators";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -27,11 +27,14 @@ export class AssetPagesComponent implements OnInit {
   term: string;
   y:any
   url_param:any;
-
+  getCommonClient:any;
+  optionsitename:any;
+  check_Licence:any; 
 
   constructor(private user: UserService,
               private formBuilder: FormBuilder,
-              private router: Router) { 
+              private router: Router,
+              private route: ActivatedRoute ) { 
                 this.y = window.location.href; 
                 // console.log(y)
                 console.log(this.y.split('/'));
@@ -43,8 +46,20 @@ export class AssetPagesComponent implements OnInit {
               }
 
   ngOnInit(): void {
+
+    // const y = this.route.snapshot.paramMap.get('id');
+   
+    this.route.queryParams.subscribe(params => {
+     console.log(params)
+     console.log(params.siteName)
+     this.check_Licence = params
+     this.optionsitename = params.siteName
+  });
+
+
     
     this.get_Asset();
+    this.onGetCommonClient()
 
     this.editForm = this.formBuilder.group({
       // id: [''],
@@ -54,6 +69,9 @@ export class AssetPagesComponent implements OnInit {
       // age: ['', Validators.required],
       // salary: ['', Validators.required]
     });
+
+    this.checkLicence()
+     
   }
 
   data = [
@@ -117,6 +135,27 @@ this.showTransferscreen=false
        
 //       });
 // }
+assetid:any;
+assetType:any;
+checkLicence(){
+  const asseitid = this.check_Licence.assetId 
+  console.log(asseitid)
+  const assetType = this.check_Licence.assetType
+  // const detail = { assetid}
+  this.assetid = this.check_Licence.assetId 
+  this.assetType =  this.check_Licence.assetType
+ const c = {assetid: this.assetid , assetType:  this.check_Licence.assetType }
+
+  if (this.assetid === "" && this.assetType === "myeloqua"){
+    this.user.checkLicence(c).subscribe(result => {
+      console.log(result)
+      this.showAsset = result
+      console.log(this.showAsset.length)
+      return result;
+    });
+  }
+  
+}
 
 onSubmit(){
   this.user.showAsset(this.editForm.value).subscribe(result => {
@@ -134,6 +173,10 @@ onClick(val:any){
   // this.router.navigate(['d'+'/'+ val]);
   // this.router.navigate(['d'], { queryParams: { order: 'popular' } });
   this.router.navigate(['d' + '/'+ 2], )
+
+
+  // this.router.navigate([''], { queryParams: { order: 'popular', asseitid: '1' } });
+
   localStorage.setItem('instance', JSON.stringify(val));
 
 
@@ -156,6 +199,8 @@ onClick(val:any){
     return ;
   });
 
+
+
   // this.user.getSyncRecordByAssetTypeAndAssetId(p);
 
 
@@ -168,6 +213,26 @@ onClick(val:any){
 // handlePageChange(event) {
 //   this.page = event;
 // }
+
+
+onGetCommonClient(){
+  const k = {name: 'transporter', lastname: 'bh'}
+  this.user.getCommonClient(k).subscribe(data_res => {
+    console.log(data_res)
+
+    this.getCommonClient = data_res;
+
+   
+
+   
+    return ;
+  });
+}
+
+home(){
+  this.router.navigate([''])
+
+}
 }
 
 

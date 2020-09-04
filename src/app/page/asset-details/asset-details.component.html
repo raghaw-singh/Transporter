@@ -10,7 +10,9 @@
 
         </div>
         <div class="col-md-2 star">
-          <span><i class='far fa-star'></i></span>
+          <!-- <span><i class='far fa-star'></i></span> -->
+          <span style="float: right;" (click)="home()"><img class="image-home" src="./assets/noun_Home_677617.png" /></span>
+
 
         </div>
     
@@ -99,9 +101,9 @@
     <div class="tab-content">
       <div id="home" class="container tab-pane active pd--left--0 pd--right--0 mr-top-12"><br>
         <div class="table-responsive">
-          <table class="table" style="font-size: 12px;">
+          <table class="table" style="font-size: 12px;" >
               <thead class="thead">
-                <tr>
+                <tr style="height: 35px;">
                   <th class="pd--left--8">Destination Instance</th>
                   <th>Status</th>
                   <th class="text-center">Date</th>
@@ -110,7 +112,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr  *ngFor="let group of data_history">
+                <tr  *ngFor="let group of data_history" style="height: 32px;">
                   <td class="pd--left--16">{{group.Asset_Type}}</td>
                   <td class="pd-left-6 text-center" [ngClass]="{
                     'orange' : group.Status === 'In Progress',
