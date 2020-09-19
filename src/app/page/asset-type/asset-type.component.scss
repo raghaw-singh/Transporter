@@ -6,7 +6,52 @@
     width:100%;
     margin : 0;
     }
+
+    .font-size-11{
+      color: #000000;
+      font-family: HelveticaNeue;
+      font-size: 16px;
+      letter-spacing: -0.57px;
+      line-height: 18px;
+      text-align: left;
+    }
+      
+    .source-instance{
+      color: #000000;
+      font-family: Karla;
+      font-size: 12px;
+      letter-spacing: -0.43px;
+      line-height: 14px;
+      text-align: left;
+      
+    }
+
+    .target-instance{
+      color: #000000;
+      font-family: Karla;
+      font-size: 12px;
+      letter-spacing: -0.43px;
+      line-height: 14px;
+      text-align: left;
+    }
     
+    .asset-type{
+      color: #000000;
+      font-family: HelveticaNeue;
+      font-size: 12px;
+      letter-spacing: -0.43px;
+      line-height: 14px;
+      text-align: left;
+    }
+    
+    .asset-name-id{
+      color: #000000;
+      font-family: HelveticaNeue;
+      font-size: 12px;
+      letter-spacing: -0.43px;
+      line-height: 14px;
+      text-align: left;
+    }
     .first-div {
     width:14%;
     margin : 0;
@@ -155,8 +200,16 @@
      }
   
      .result-number{
-      font-size: 10px;
+      // font-size: 10px;
       padding-left: 12px;
+
+      color: #4A4A4A;
+      font-family: HelveticaNeue;
+      font-size: 12px;
+      line-height: 14px;
+      width: 89px;
+      text-align: left;
+      margin-bottom: 5px;
      }
   
   
@@ -235,10 +288,22 @@
   }
 
   .list-button{
-    color: black;
-    background-color: #e9ecef;
+    
+    // background-color: #e9ecef;
+    background-color: #F3F3F3;
+    border-radius: 2px;
+
     border: 1px;
     margin-top: 8px;
+    width: 65px;
+    height: 24px;
+
+
+    color: #000000;
+    font-family: HelveticaNeue;
+    font-size: 10px;
+    line-height: 11.93px;
+    
   }
 
   .check-box-center{
@@ -368,4 +433,33 @@ pagination-controls ul.ngx-pagination li.pagination-next {float:right;}
   color: #E21E26;
   width: 24px;
   height: 25px;
+}
+
+.search-box{
+  border: 1px solid #D8D8D8;
+  border-radius: 2px;
+  width: 294px;
+  height: 32px;
+  margin-top: 2px;
+}
+.table tbody tr td{
+
+  color: #000000;
+  font-family: HelveticaNeue;
+  font-size: 16px;
+  line-height: 18px;
+  // text-align: left;
+}
+
+.table-data{
+  margin-top: 14px;
+
+}
+
+.table thead tr th {
+  color: #4A4A4A;
+  font-family: HelveticaNeue;
+  font-size: 12px;
+  line-height: 11.93px;
+  text-align: left;
 }

@@ -3,6 +3,8 @@ import { UserService } from 'src/app/service/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { map } from "rxjs/operators";
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 
 
 @Component({
@@ -30,6 +32,7 @@ export class AssetPagesComponent implements OnInit {
   getCommonClient:any;
   optionsitename:any;
   check_Licence:any; 
+  target_instance:any;
 
   constructor(private user: UserService,
               private formBuilder: FormBuilder,
@@ -231,6 +234,61 @@ onGetCommonClient(){
 
 home(){
   this.router.navigate([''])
+
+}
+
+onChange(deviceValue) {
+  this.target_instance = deviceValue
+  console.log(this.target_instance);
+}
+
+transfer(){
+  if (this.target_instance === undefined){
+    // alert("ok")
+    // Swal.fire({
+    //   title: 'Are you sure?',
+    //   text: 'You will not be able to recover this imaginary file!',
+    //   icon: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonText: 'Yes, delete it!',
+    //   cancelButtonText: 'No, keep it'
+    // }).then((result) => {
+    //   if (result.value) {
+    //     Swal.fire(
+    //       'Deleted!',
+    //       'Your imaginary file has been deleted.',
+    //       'success'
+    //     )
+      
+    //   } else if (result.dismiss === Swal.DismissReason.cancel) {
+    //     Swal.fire(
+    //       'Cancelled',
+    //       'Your imaginary file is safe :)',
+    //       'error'
+    //     )
+    //   }
+    // })
+
+    Swal.fire(
+      'you have to Select Target Instance'
+    )
+  }else{
+    const k = {sourceSiteId: '250973722', assetType: 'Program' , assetName:'assetName', assetId:'assetId', targetSiteName:'TechnologyPartnerportQii' }
+    this.user.checkSyncRecord(k).subscribe(data_res => {
+      console.log(data_res)
+
+      Swal.fire('Transfer'+' '+data_res)
+  
+      // this.getCommonClient = data_res;
+  
+     
+  
+     
+      return ;
+    });
+  }
+
+  
 
 }
 }

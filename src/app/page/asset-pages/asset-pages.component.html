@@ -3,7 +3,7 @@
 
 <div class="card card-right">
 <div  class="pd-8">
-    <span class="mr-12"><i class='fas fa-arrow-left'></i></span>
+    <span class="mr-12"  (click)="home()"><i class='fas fa-arrow-left'></i></span>
     <span class="font-size-11">New Assets Transfer</span>
 
     <!-- <span style="float: right;"><i class='far fa-star'></i></span> -->
@@ -14,7 +14,7 @@
     <form class="form-signin form-height" [formGroup]="editForm" (ngSubmit)="onSubmit()">
                                 
         <div class="form-group">
-          <label class="form-label"><b>Source Instance</b></label>
+          <label class="form-label source-instance"><b>Source Instance</b></label>
           <select class="form-control font-size-12">
               <!-- <option *ngFor="let test of data" [value]="test">{{test.Asset_Type_Name}}</option> -->
               <option [value]="">{{optionsitename}}</option>
@@ -22,15 +22,22 @@
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label"><b>Target Instance</b></label>
-          <select class="form-control font-size-12">
-              <option *ngFor="let data of getCommonClient" [value]="data">{{data.Site_Name}}</option>
+          <label class="form-label target-instance"><b>Target Instance</b></label>
+          <select class="form-control font-size-12" (change)="onChange($event.target.value)">
+            <!-- <option value="" selected disabled hidden > Select Target Instance </option> -->
+            <option [value]="undefined" hidden > Select Target Instance </option>
+
+
+              <option *ngFor="let data of getCommonClient" [value]="data.Site_Name" >{{data.Site_Name}}</option>
           </select>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-4">
-              <label  class="form-label"><b>Asset Type</b></label>
-              <select class="form-control" formControlName="assettype">
+          <div class="form-group col-md-4 hideoverflow">
+              <label  class="form-label asset-type"><b>Asset Type</b></label>
+              <select class="form-control no-scroll" formControlName="assettype">
+                <option value="" hidden > All </option>
+                
+
                 <option *ngFor="let data of data_asset" [value]="data.Asset_Type_Name">{{data.Asset_Type_Name}}</option>
                   <!-- <option style="font-size: 11;" value="">{{this.asset_type}}</option> -->
                   <!-- <option>All</option>
@@ -40,10 +47,10 @@
               </select>
           </div>
           <div class="form-group col-md-8">
-            <label for="email" class="form-label"><b>Asset Name/Id</b></label>
+            <label for="email" class="form-label asset-name-id"><b>Asset Name/Id</b></label>
          
 
-              <input type="text"  class="form-control font-size-10" style="height:39px" placeholder="Search Keywords" formControlName="search" [(ngModel)]="term">
+              <input type="text"  class="form-control font-size-10 search-box" style="height:39px" placeholder="Search Keywords" formControlName="search" [(ngModel)]="term">
              
               <!-- <i class='fas fa-search serach-icon'></i> -->
               <button  class="btn button-search" type="submit"><i class="fas fa-search"></i></button>
@@ -69,14 +76,14 @@
       <span class="left-text titile-left">Assets</span>
       <span class="titile-right">02 Assets</span>
     </div>
-    <div *ngIf="showAsset?.length > 0">
+    <div *ngIf="showAsset?.length > 0" class="table-data">
 <div class="font-size-10">
    
     <table class="table table-hover sortable" style="font-size: 11px;" *ngIf="showSelect">
       <thead>
         <tr>
-          <th>AboutName</th>
-          <th>AboutId</th> 
+          <th>Asset Name</th>
+          <th>About Id</th> 
           <th></th>
         </tr>
       </thead>
@@ -86,7 +93,7 @@
           <!-- <td (click) ="onClick(group)">{{group.assetName}}</td> -->
 
           <td>{{group.assetId}}</td>
-          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button">Transfer</button>
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button" (click)="transfer()">Transfer</button>
 
         </tr>
         <!-- <tr class="boder-bottom">

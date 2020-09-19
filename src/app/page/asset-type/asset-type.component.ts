@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 
 @Component({
   selector: 'app-asset-type',
@@ -15,6 +17,7 @@ export class AssetTypeComponent implements OnInit {
   editForm:FormGroup
   showAsset: any;
   term: string;
+  target_instance:any;
 
   p = 1;
   constructor(private router: Router,
@@ -38,6 +41,7 @@ export class AssetTypeComponent implements OnInit {
    this.editForm = this.formBuilder.group({
     // id: [''],
     assettype: ['',],
+    targetinstance:['', Validators.required],
     search: ['',],
     // lastName: ['', Validators.required],
     // age: ['', Validators.required],
@@ -68,11 +72,42 @@ export class AssetTypeComponent implements OnInit {
 
   onSubmit(){
     this.user.showAsset(this.editForm.value).subscribe(result => {
+      console.log(this.editForm.value)
       console.log(result)
       this.showAsset = result
       console.log(this.showAsset.length)
       return result;
     });
+  }
+
+  onChange(deviceValue) {
+    this.target_instance = deviceValue
+    console.log(this.target_instance);
+  }
+
+
+  transfer(){
+    if (this.target_instance === undefined){
+      // alert("ok")
+      Swal.fire(
+        'you have to Select Target Instance'
+      )
+    }else{
+      const k = {sourceSiteId: '250973722', assetType: 'Program' , assetName:'assetName', assetId:'assetId', targetSiteName:'TechnologyPartnerportQii' }
+      this.user.checkSyncRecord(k).subscribe(data_res => {
+        console.log(data_res)
+        Swal.fire('Transfer'+' ' +data_res)
+
+        // this.getCommonClient = data_res;
+    
+       
+    
+       
+        return ;
+      });
+    }
+    
+  
   }
 
 }

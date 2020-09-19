@@ -58,5 +58,11 @@ export class AssetDetailsComponent implements OnInit {
     this.router.navigate([''])
   
   }
+
+  back(){
+    
+    this.router.navigate(['first'], { queryParams: { appId: '1' , InstallId: '2' , assetType:'Email', assetId: '4', siteId:'892925384', siteName:'TechnologyPartnerPORTQIIPTELTD', assetName:'myeloqua', userId:'18', userName: 'Aditi.Sinha' } });
+
+  }
  
 }

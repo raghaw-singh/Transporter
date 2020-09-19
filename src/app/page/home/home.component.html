@@ -11,10 +11,10 @@
                           <div class="wrapper" style="margin-top: 16px;padding-right: 6px;">
                             <div class="first-div" >
                              
-                             <i class="fa fa-amazon icon-aligen"></i>
+                             <img class="icon-image" src="assets/arrow.png"/>
                             </div> 
                             <div class="second-div" >
-                             <span class="text-center">Transponder Sync</span>
+                             <span class="text-center transponder-sync">Transporter Sync</span>
                             </div>
                             <div class="third-div" >
                               <!-- <button type="button" class="btn btn-danger btn-sm btn-right" (click)="screen()">New</button> -->
@@ -47,13 +47,14 @@
                           <div class="wrapper" *ngIf="showData">
                             <p class="table-title">Recent Transfers</p>
 
-                            <div *ngFor="let data of showsync  | filter:term" style="clear: both;">
-                            <div class="first1-div" [ngClass]="{
-                              'rectangle-copy-9' : data.Asset_Type ==='Email',
-                              'rectangle-copy-10 ' : data.Asset_Type ==='Campaign',
-                              'rectangle-form' : data.Asset_Type ==='Form'
-                             
-                           }">
+                            <div *ngFor="let data of showsync  | filter:term" style="clear: both;" class="table-data" >
+                              <div [ngClass]="{
+                                'rectangle-copy-9' : data.Asset_Type ==='Email',
+                                'rectangle-copy-10 ' : data.Asset_Type ==='Campaign',
+                                'rectangle-form' : data.Asset_Type ==='Form'
+                               
+                             }">
+                            <div class="first1-div">
                               <!-- <i *ngIf="(data.Asset_Name === Email1)" class="material-icons icon-back">email</i> -->
                               <!-- <i  
                               
@@ -66,12 +67,7 @@
                                   
                                 }"></i> -->
                                 <!-- <span><img class="image-home" src="./assets/email_icon.png" /></span> -->
-                                <span><img    [ngClass]="{
-                                  'bitmap-copy-3' : data.Asset_Type ==='Email',
-                                  'noun-announcement' : data.Asset_Type ==='Campaign',
-                                  'rectangle-form' : data.Asset_Type ==='Form'
-                                 
-                               }" [src]="getImage(data)"/></span>                           
+                                <span class="image-icon"><img  [src]="getImage(data)"/></span>                           
 
                                 <!-- <div class="image">
 
@@ -86,17 +82,55 @@
                             </div>
                             <div class="second-div" (click)="target(data)">
                               <!-- <h4 class="mar-bottom-0 msg-title">Email Template Title</h4> -->
-                              <h4 class="mar-bottom-0 msg-title">{{data.Asset_Name}}</h4>
+                              <p class="mar-bottom-0 msg-title">{{data.Asset_Name}}</p>
                           
-                              <div style="display: inline;">
-                                <span class="font-size-9">{{data.Source_Site_Id}}</span>
+                              <!-- <div style="display: inline;">
+                                <span class="font-size-9 source-instance">{{data.Source_Site_Id}}</span>
                                 <i class="material-icons font-size-15 play--icon"  [ngClass]="{
                                   'orange' : data.Status === 'In Progress'
                                  
                                }">play_arrow</i>
-                               <!-- <i class="material-icons font-size-15 play--icon" *ngIf="(data.Status == In Progress)">play_arrow</i> -->
-                                <span class="font-size-9">{{data.Target_Site_Id}}</span>
+                                <span class="font-size-9 destination-instance">{{data.Target_Site_Id}}</span>
                               </div>
+                           -->
+                              <!-- <div class="row data-row">
+                                <div class="col-md-5">
+
+                                  <span class="font-size-9 source-instance">{{data.Source_Site_Id}}</span>
+
+                                </div>
+                                <div class="col-md-2">
+                                  <i class="material-icons font-size-15 play--icon"  [ngClass]="{
+                                    'orange' : data.Status === 'In Progress'
+                                   
+                                 }">play_arrow</i>
+                                </div>
+                                <div class="col-md-5">
+                                  <span class="font-size-9 destination-instance">{{data.Target_Site_Id}}</span>
+
+                                </div>
+                              </div> -->
+                              <div class="data-row">
+                                <span class="font-size-9 source-instance">{{data.Source_Site_Id}}</span>
+                                <span> <i class="material-icons font-size-15 play--icon"  [ngClass]="{
+                                  'orange' : data.Status === 'In Progress'
+                                 
+                               }">play_arrow</i></span>
+                               <span class="font-size-9 destination-instance">{{data.Target_Site_Id}}</span>
+
+                              </div>
+
+                              <!-- <div class="parent">
+                                <div class="column source-instance">{{data.Source_Site_Id}}</div>
+                                <div class="column arrow"> <i class="material-icons font-size-15 play--icon"  [ngClass]="{
+                                  'orange' : data.Status === 'In Progress'
+                                 
+                               }">play_arrow</i></div>
+                                <div class="column destination-instance">{{data.Target_Site_Id}}</div>
+                            </div> -->
+
+                            
+                              
                             </div>
                             <div class="third-div">
                               <p class="font-size-9 time-center"><b>{{calculateDiff(data)}} {{hoursTime(data)}} </b></p>

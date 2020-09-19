@@ -127,8 +127,8 @@ calculateDiff(dateSent){
   // console.log(dateSent)
   // console.log(dateSent.End_Time)
   // console.log(dateSent.Start_Time)
-
-  let start = new Date(dateSent.Start_Time).getTime()
+let start = new Date().getTime()
+  // let start = new Date(dateSent.Start_Time).getTime()
   // console.log(start)
   let end = new Date(dateSent.End_Time).getTime()
   // console.log(end)
@@ -160,8 +160,9 @@ if (diffDays >= 1){
 
  hoursTime(key){
   
+  let start = new Date().getTime()
 
-  let start = new Date(key.Start_Time).getTime()
+  // let start = new Date(key.Start_Time).getTime()
  
   let end = new Date(key.End_Time).getTime()
  
