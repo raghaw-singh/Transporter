@@ -14,6 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AssetPageTargetComponent } from './asset-page-target/asset-page-target.component';
 import { AssetTypeComponent } from './asset-type/asset-type.component';
+import { NgxSpinnerModule } from "ngx-spinner";  
 
 
 const routes: Routes = [
@@ -57,7 +58,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxSpinnerModule
 
   ],
 

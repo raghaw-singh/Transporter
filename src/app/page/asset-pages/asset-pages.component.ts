@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { map } from "rxjs/operators";
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { NgxSpinnerService } from "ngx-spinner";  
+
 
 
 
@@ -38,7 +40,8 @@ export class AssetPagesComponent implements OnInit {
   constructor(private user: UserService,
               private formBuilder: FormBuilder,
               private router: Router,
-              private route: ActivatedRoute ) { 
+              private route: ActivatedRoute,
+              private SpinnerService: NgxSpinnerService ) { 
                 this.y = window.location.href; 
                 // console.log(y)
                 console.log(this.y.split('/'));
@@ -176,10 +179,17 @@ checkLicence(){
 }
 
 onSubmit(){
+
+  this.SpinnerService.show();  
+
   this.user.showAsset(this.editForm.value).subscribe(result => {
     console.log(result)
+
     this.showAsset = result
     console.log(this.showAsset.length)
+
+    this.SpinnerService.hide();  
+
     return result;
   });
 }
@@ -262,9 +272,13 @@ transfer(){
   if (this.target_instance == undefined){
     this.validateAllFields(this.editForm)
   } else{
+    this.SpinnerService.show();  
+
     const k = {sourceSiteId: '250973722', assetType: 'Program' , assetName:'assetName', assetId:'assetId', targetSiteName:'TechnologyPartnerportQii' }
     this.user.checkSyncRecord(k).subscribe(data_res => {
       console.log(data_res)  
+      this.SpinnerService.hide();  
+
       return ;
     });
   

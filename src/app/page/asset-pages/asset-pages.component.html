@@ -64,12 +64,15 @@
             </div>
       </div>
 
-    
+      <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white"> </p>  
+        </ngx-spinner>
 
       <!-- <div class="custom-control custom-checkbox mb-3">
       </div> -->
     </form>
 
+    
 
     <div *ngIf="showAsset?.length > 0">
       <span class="result-number" >{{showAsset?.length}} results</span>
@@ -130,8 +133,10 @@
     </table>
 
     
-    <pagination-controls style="padding-left: 20px;" (pageChange)="p = $event"></pagination-controls>
-    
+   
+      <pagination-controls style="padding-left: 20px;" (pageChange)="p = $event"></pagination-controls>
+
+      
   </div>
   
 

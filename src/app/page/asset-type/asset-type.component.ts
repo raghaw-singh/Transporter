@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class AssetTypeComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private user: UserService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
 
@@ -87,11 +89,15 @@ export class AssetTypeComponent implements OnInit {
 
 
   onSubmit(){
+    this.SpinnerService.show();  
+
     this.user.showAsset(this.editForm.value).subscribe(result => {
       console.log(this.editForm.value)
       console.log(result)
       this.showAsset = result
       console.log(this.showAsset.length)
+      this.SpinnerService.hide();  
+
       return result;
     });
   }
@@ -106,9 +112,13 @@ export class AssetTypeComponent implements OnInit {
     if (this.target_instance == undefined){
       this.validateAllFields(this.editForm)
     } else{
+      this.SpinnerService.show();  
+
       const k = {sourceSiteId: '250973722', assetType: 'Program' , assetName:'assetName', assetId:'assetId', targetSiteName:'TechnologyPartnerportQii' }
       this.user.checkSyncRecord(k).subscribe(data_res => {
         console.log(data_res)  
+        this.SpinnerService.hide();  
+
         return ;
       });
     

@@ -7,6 +7,8 @@ import { HttpClientModule } from  '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from "ngx-spinner";  
+
 
 
 
@@ -21,7 +23,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule  
+
 
   ],
   providers: [],
