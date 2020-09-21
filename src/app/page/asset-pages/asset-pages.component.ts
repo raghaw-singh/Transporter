@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { map } from "rxjs/operators";
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
@@ -33,6 +33,7 @@ export class AssetPagesComponent implements OnInit {
   optionsitename:any;
   check_Licence:any; 
   target_instance:any;
+  rejectionReason:any;
 
   constructor(private user: UserService,
               private formBuilder: FormBuilder,
@@ -67,6 +68,7 @@ export class AssetPagesComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       // id: [''],
       assettype: ['',],
+      target_instance:['', Validators.required],
       search: ['',],
       // lastName: ['', Validators.required],
       // age: ['', Validators.required],
@@ -76,6 +78,19 @@ export class AssetPagesComponent implements OnInit {
     this.checkLicence()
      
   }
+
+  get f() { return this.editForm.controls; }
+
+  validateAllFields(formGroup: FormGroup) {         
+    Object.keys(formGroup.controls).forEach(field => {  
+        const control = formGroup.get(field);            
+        if (control instanceof FormControl) {             
+            control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {        
+            this.validateAllFields(control);  
+        }
+    });
+}
 
   data = [
     {
@@ -243,50 +258,20 @@ onChange(deviceValue) {
 }
 
 transfer(){
-  if (this.target_instance === undefined){
-    // alert("ok")
-    // Swal.fire({
-    //   title: 'Are you sure?',
-    //   text: 'You will not be able to recover this imaginary file!',
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonText: 'Yes, delete it!',
-    //   cancelButtonText: 'No, keep it'
-    // }).then((result) => {
-    //   if (result.value) {
-    //     Swal.fire(
-    //       'Deleted!',
-    //       'Your imaginary file has been deleted.',
-    //       'success'
-    //     )
-      
-    //   } else if (result.dismiss === Swal.DismissReason.cancel) {
-    //     Swal.fire(
-    //       'Cancelled',
-    //       'Your imaginary file is safe :)',
-    //       'error'
-    //     )
-    //   }
-    // })
 
-    Swal.fire(
-      'you have to Select Target Instance'
-    )
-  }else{
+  if (this.target_instance == undefined){
+    this.validateAllFields(this.editForm)
+  } else{
     const k = {sourceSiteId: '250973722', assetType: 'Program' , assetName:'assetName', assetId:'assetId', targetSiteName:'TechnologyPartnerportQii' }
     this.user.checkSyncRecord(k).subscribe(data_res => {
-      console.log(data_res)
-
-      Swal.fire('Transfer'+' '+data_res)
-  
-      // this.getCommonClient = data_res;
-  
-     
-  
-     
+      console.log(data_res)  
       return ;
     });
+  
+
   }
+  
+   
 
   
 

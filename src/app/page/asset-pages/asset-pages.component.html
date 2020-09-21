@@ -23,13 +23,17 @@
         </div>
         <div class="form-group">
           <label class="form-label target-instance"><b>Target Instance</b></label>
-          <select class="form-control font-size-12" (change)="onChange($event.target.value)">
+          <select class="form-control font-size-12" (change)="onChange($event.target.value)" formControlName="target_instance" [(ngModel)]="rejectionReason" 
+          [ngClass]="{ 'is-invalid': f.target_instance.errors && (f.target_instance.dirty || f.target_instance.touched) }">
             <!-- <option value="" selected disabled hidden > Select Target Instance </option> -->
             <option [value]="undefined" hidden > Select Target Instance </option>
 
 
               <option *ngFor="let data of getCommonClient" [value]="data.Site_Name" >{{data.Site_Name}}</option>
           </select>
+            <span class="alert-danger" *ngIf="(f.target_instance.dirty || f.target_instance.touched) && f.target_instance.invalid && f.target_instance.errors.required">
+              Target instance required.
+            </span>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4 hideoverflow">
@@ -93,7 +97,8 @@
           <!-- <td (click) ="onClick(group)">{{group.assetName}}</td> -->
 
           <td>{{group.assetId}}</td>
-          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button" (click)="transfer()">Transfer</button>
+          <!-- <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button" [disabled]="rejectionReason ===  undefined" (click)="transfer()">Transfer</button> -->
+          <button type="button" class="btn btn-danger  btn-sm font-size-10 list-button"  (click)="transfer()">Transfer</button>
 
         </tr>
         <!-- <tr class="boder-bottom">

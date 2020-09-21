@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 
@@ -18,6 +18,8 @@ export class AssetTypeComponent implements OnInit {
   showAsset: any;
   term: string;
   target_instance:any;
+  rejectionReason:any;
+
 
   p = 1;
   constructor(private router: Router,
@@ -41,7 +43,7 @@ export class AssetTypeComponent implements OnInit {
    this.editForm = this.formBuilder.group({
     // id: [''],
     assettype: ['',],
-    targetinstance:['', Validators.required],
+    target_instance:['', Validators.required],
     search: ['',],
     // lastName: ['', Validators.required],
     // age: ['', Validators.required],
@@ -49,6 +51,20 @@ export class AssetTypeComponent implements OnInit {
   });
    this.onGetCommonClient();
   }
+
+  get f() { return this.editForm.controls; }
+
+  validateAllFields(formGroup: FormGroup) {         
+    Object.keys(formGroup.controls).forEach(field => {  
+        const control = formGroup.get(field);            
+        if (control instanceof FormControl) {             
+            control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {        
+            this.validateAllFields(control);  
+        }
+    });
+}
+
 
   home() {
     this.router.navigate([''])
@@ -87,25 +103,18 @@ export class AssetTypeComponent implements OnInit {
 
 
   transfer(){
-    if (this.target_instance === undefined){
-      // alert("ok")
-      Swal.fire(
-        'you have to Select Target Instance'
-      )
-    }else{
+    if (this.target_instance == undefined){
+      this.validateAllFields(this.editForm)
+    } else{
       const k = {sourceSiteId: '250973722', assetType: 'Program' , assetName:'assetName', assetId:'assetId', targetSiteName:'TechnologyPartnerportQii' }
       this.user.checkSyncRecord(k).subscribe(data_res => {
-        console.log(data_res)
-        Swal.fire('Transfer'+' ' +data_res)
-
-        // this.getCommonClient = data_res;
-    
-       
-    
-       
+        console.log(data_res)  
         return ;
       });
+    
+  
     }
+    
     
   
   }
